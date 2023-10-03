@@ -1,0 +1,80 @@
+body {
+    background: linear-gradient(to right, #26d0ce, #1a2980);
+    color: #e1e1e1;
+    font-family: helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.container .album {
+    height: inherit;
+    transition: transform 1s ease;
+}
+
+.container .album.front {
+    transform: perspective(800px) rotateY(0deg);
+
+}
+
+.container .album.back {
+    transform: perspective(800px) rotateY(90deg) scaleX(-1);
+}
+
+.container:hover {
+    cursor: pointer;
+}
+
+.container:hover .album.front {
+    animation-name: hide;
+    animation-duration: 300ms;
+    animation-delay: 0ms;
+    animation-fill-mode: forwards;
+}
+
+.container:hover .album.back {
+    animation-name: show;
+    animation-duration: 300ms;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+}
+
+
+.container .album img {
+    width: 100%;
+    height: 100%;
+}
+
+.container .album {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+@keyframes show {
+    0% {
+        transform: perspective(800px) rotateY(90deg) scaleX(-1);
+    }
+
+    100% {
+        transform: perspective(800px) rotateY(180deg) scaleX(-1);
+    }
+}
+
+
+@keyframes hide {
+    0% {
+        transform: perspective(800px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(800px) rotateY(90deg);
+    }
+}
