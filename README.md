@@ -25,7 +25,7 @@ Exemplificação de Cover Flip
 ```sh
 .
 ├── README.md
-└── index.html
+├── index.html
 └── style.css
 ```
 
